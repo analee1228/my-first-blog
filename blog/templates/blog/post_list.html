@@ -18,30 +18,35 @@
 		display: block;
 	}
 
+	div.main_content ul{
+		list-style: none;
+		text-align: left;
+	}
+
+
 </style>
 <body>
-
 	<div class="w3-container w3-orange">
-	<center><h1><font face="sweet pea"><font color="white"><strong>Welcome to My Django Girls Blog</strong></font></font></h1></center>
+		<center><h1><font face="sweet pea", color="white">Ana Marie's Blog</font></h1></center>
 	</div>
 
-	
- 	<div><h2>My First Post</h2>
- 	<h4>At last! I finally have a working website!</h4>
- 	<p>Published: 05.06.2017, 2:26 p.m</p>
- 	</div>
-<br/>
-<br/>
-	<div class="container"><h2>My Second Post</h2>
- 	<h4>Django makes me realize that learning codes is not that as crucial as I think before. Thanks to Django for making the impossible to possible. Because of this, I am able to learn and get new knowledge that for sure I can use it in my school and also to my future <i class="fa fa-heart" aria-hidden="true"></i>
-</h4>
- 	<p>Published: 05.06.2017, 2:26 p.m</p>
- 	</div>
+	<div class="main_content">
+		<ul>
+		{% for post in posts %}
+			<li>
+		 		<div><h2>{{ post.title }}</h2>
+		 		<h4>{{ post.text|linebreaksbr }}</h4>
+		 		<p>Published: {{ post.published_date }}</p>
+		 		</div>
+			</li>
+	 	{% endfor %}
+	 	</ul>
+	</div>
 
 	<footer class="w3-container w3-orange">
- 	<center><font face="sweet pea"><font color="white"><h5>Django Girls Blog</h5>
+ 	<center><h5><font face="sweet pea"><font color="white">Django Girls Blog</font></h5>
 
- 	<p>By: Ana Marie G. Lee | Published: May 6, 2017</p></font></font></center>
+ 	<p><font color="white">By: Ana Marie G. Lee | Published: May 6, 2017</font></p></font></font></center>
 </footer>
 </body>
 </html>
